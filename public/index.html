@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivian Writes - Personal Blog</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 20px;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Main Content Area */
+        .main-content {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .articles {
+            flex: 2;
+        }
+        
+        .sidebar {
+            flex: 1;
+        }
+        
+        /* Article Cards */
+        .article-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-left: 4px solid #27ae60; /* Digital Garden Theme */
+        }
+        
+        .article-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+        
+        .article-content {
+            padding: 20px;
+        }
+        
+        .article-meta {
+            display: flex;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .article-meta span {
+            margin-right: 15px;
+        }
+        
+        .article-content h2 {
+            margin-bottom: 10px;
+        }
+        
+        .article-excerpt {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .read-more {
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar-widget h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .categories-list {
+            list-style: none;
+        }
+        
+        .categories-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .categories-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .categories-list span {
+            background-color: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .about-widget p {
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        /* Newsletter Form */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .newsletter-form input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            margin-right: 30px;
+        }
+        
+        .footer-section:last-child {
+            margin-right: 0;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Individual Article Page */
+        .article-page {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .article-header {
+            margin-bottom: 30px;
+        }
+        
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .article-body p {
+            margin-bottom: 20px;
+        }
+        
+        .article-body h2 {
+            margin: 30px 0 15px;
+            color: #2c3e50;
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+        
+        .tag {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .garden-tag { /* Digital Garden Theme */
+            background-color: #d5f4e6;
+            color: #27ae60;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comment {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+        }
+        
+        .comment-date {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-menu {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .nav-menu li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading animation */
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Vivian Writes</div>
+            <ul class="nav-menu">
+                <li><a href="/">Digital Garden</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/admin">Admin</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Vivian's Digital Garden</h1>
+                <p>A growing collection of thoughts, ideas, and connections</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Articles Section -->
+        <div class="articles">
+            <div class="loader" id="loader"></div>
+            <div id="articles-container">
+                <!-- Articles will be loaded here dynamically -->
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- About Widget -->
+            <div class="sidebar-widget about-widget">
+                <h3>About This Garden</h3>
+                <p>This is a digital garden—a space for growing ideas rather than publishing finished thoughts. Everything here is a work in progress.</p>
+                <a href="/about" style="color: #3498db; font-weight: 500;">Learn more →</a>
+            </div>
+
+            <!-- Categories Widget -->
+<div class="sidebar-widget">
+    <h3>Categories</h3>
+    <ul class="categories-list" id="categories-list">
+        <li>Loading categories...</li>
+    </ul>
+</div>
+
+            <!-- Newsletter Widget -->
+            <div class="sidebar-widget">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get the latest posts delivered to your inbox.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Your email address" required>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Vivian Writes</h3>
+                    <p>Sharing personal stories and insights through blog posts.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Digital Garden</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/admin">Admin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow</h3>
+                    <ul class="footer-links">
+                        
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Vivian Writes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for blog functionality
+        document.addEventListener('DOMContentLoaded', function() {
+    // Newsletter form submission
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            alert(`Thank you for subscribing with: ${email}`);
+            this.reset();
+        });
+    }
+    
+    // Load articles and categories
+    loadArticles();
+    loadCategories();
+});
+        
+        // Fetch articles from API
+        async function loadArticles() {
+            try {
+                // Show loading animation
+                document.getElementById('loader').style.display = 'block';
+                
+                const response = await fetch('/api/articles');
+                const articles = await response.json();
+                
+                const container = document.getElementById('articles-container');
+                const loader = document.getElementById('loader');
+                
+                // Hide loader and clear container
+                loader.style.display = 'none';
+                container.innerHTML = '';
+                
+                if (articles.length === 0) {
+                    container.innerHTML = '<p>No articles found. Be the first to create one!</p>';
+                    return;
+                }
+                
+                // Display articles
+                articles.forEach(article => {
+                    const articleElement = `
+                        <article class="article-card">
+                            <div class="article-image">
+                                <img src="${article.imageUrl || 'https://via.placeholder.com/800x400'}" alt="${article.title}">
+                            </div>
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span>${new Date(article.createdAt).toLocaleDateString()}</span>
+                                    <span>${article.category || 'Uncategorized'}</span>
+                                </div>
+                                <h2><a href="#" class="article-link" data-id="${article._id}">${article.title}</a></h2>
+                                <p class="article-excerpt">${article.content.substring(0, 150)}...</p>
+                                <a href="#" class="read-more article-link" data-id="${article._id}">Read More →</a>
+                            </div>
+                        </article>
+                    `;
+                    container.innerHTML += articleElement;
+                });
+                
+                // Add event listeners to article links
+                document.querySelectorAll('.article-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const articleId = e.target.getAttribute('data-id');
+                        loadArticle(articleId);
+                    });
+                });
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('articles-container').innerHTML = 
+                    '<p>Error loading articles. Please try again later.</p>';
+            }
+        }
+        
+        // Function to load a single article
+        async function loadArticle(id) {
+            try {
+                // Show loading animation
+                document.getElementById('articles-container').innerHTML = 
+                    '<div class="loader"></div>';
+                
+                const response = await fetch(`/api/articles/${id}`);
+                if (!response.ok) {
+                    throw new Error('Article not found');
+                }
+                const article = await response.json();
+                
+                // Update the main content to show the single article
+                document.querySelector('.articles').innerHTML = `
+                    <div class="article-page">
+                        <div class="article-header">
+                            <h1>${article.title}</h1>
+                            <div class="article-meta">
+                                <span>${new Date(article.createdAt).toLocaleDateString()}</span>
+                                <span>${article.category || 'Uncategorized'}</span>
+                            </div>
+                        </div>
+                        ${article.imageUrl ? `
+                        <div class="article-image">
+                            <img src="${article.imageUrl}" alt="${article.title}">
+                        </div>
+                        ` : ''}
+                        <div class="article-body">
+                            ${article.content.split('\n').map(p => `<p>${p}</p>`).join('')}
+                        </div>
+                        <button id="back-to-home" class="btn">Back to Home</button>
+                    </div>
+                `;
+                
+                document.getElementById('back-to-home').addEventListener('click', () => {
+                    location.reload();
+                });
+            } catch (error) {
+                console.error('Error loading article:', error);
+                document.querySelector('.articles').innerHTML = 
+                    '<p>Error loading article. Please try again later.</p>';
+            }
+        }
+        // Load categories with actual counts
+async function loadCategories() {
+    try {
+        const response = await fetch('/api/categories');
+        const categories = await response.json();
+        
+        const categoriesList = document.getElementById('categories-list');
+        
+        if (categories.length === 0) {
+            categoriesList.innerHTML = '<li>No categories yet</li>';
+            return;
+        }
+        
+        categoriesList.innerHTML = categories.map(cat => 
+            `<li><a href="#" onclick="filterByCategory('${cat._id}')">${cat._id} <span>${cat.count}</span></a></li>`
+        ).join('');
+        
+    } catch (error) {
+        console.error('Error loading categories:', error);
+        document.getElementById('categories-list').innerHTML = '<li>Error loading categories</li>';
+    }
+}
+
+// Filter articles by category
+async function filterByCategory(category) {
+    try {
+        document.getElementById('loader').style.display = 'block';
+        
+        const response = await fetch('/api/articles');
+        const allArticles = await response.json();
+        
+        // Filter articles by category
+        const filteredArticles = allArticles.filter(article => 
+            article.category && article.category.toLowerCase() === category.toLowerCase()
+        );
+        
+        const container = document.getElementById('articles-container');
+        const loader = document.getElementById('loader');
+        
+        loader.style.display = 'none';
+        container.innerHTML = '';
+        
+        if (filteredArticles.length === 0) {
+            container.innerHTML = `<p>No articles found in category "${category}". <a href="#" onclick="loadArticles()">Show all articles</a></p>`;
+            return;
+        }
+        
+        // Update page title
+        document.querySelector('.hero h1').textContent = `${category} Articles`;
+        document.querySelector('.hero p').textContent = `Articles about ${category}`;
+        
+        // Display filtered articles
+        filteredArticles.forEach(article => {
+            const articleElement = `
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="${article.imageUrl || 'https://via.placeholder.com/800x400'}" alt="${article.title}">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>${new Date(article.createdAt).toLocaleDateString()}</span>
+                            <span>${article.category || 'Uncategorized'}</span>
+                        </div>
+                        <h2><a href="#" class="article-link" data-id="${article._id}">${article.title}</a></h2>
+                        <p class="article-excerpt">${article.content.substring(0, 150)}...</p>
+                        <a href="#" class="read-more article-link" data-id="${article._id}">Read More →</a>
+                    </div>
+                </article>
+            `;
+            container.innerHTML += articleElement;
+        });
+        
+        // Re-attach event listeners
+        document.querySelectorAll('.article-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const articleId = e.target.getAttribute('data-id');
+                loadArticle(articleId);
+            });
+        });
+        
+    } catch (error) {
+        console.error('Error filtering articles:', error);
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('articles-container').innerHTML = 
+            '<p>Error loading articles. Please try again later.</p>';
+    }
+}
+    </script>
+</body>
+</html>
