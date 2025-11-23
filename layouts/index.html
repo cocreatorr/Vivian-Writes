@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vivian Writes - Digital Garden</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 1rem;
+        }
+        article {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        h1 { color: #4a7c59; }
+        h3 { margin-top: 0; }
+        time {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        a {
+            color: #4a7c59;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌱 Vivian's Digital Garden</h1>
+        <p>A growing collection of thoughts on food, travel, technology, and inspiration</p>
+    </header>
+    
+    <main>
+        <h2>Recently Planted</h2>
+        
+        {{ range .Site.RegularPages }}
+            <article>
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                <time>{{ .Date.Format "January 2, 2006" }}</time>
+                {{ with .Description }}
+                    <p>{{ . }}</p>
+                {{ end }}
+                <a href="{{ .Permalink }}">Read this post →</a>
+            </article>
+        {{ else }}
+            <p>No posts yet. Seeds are being planted... 🌱</p>
+        {{ end }}
+    </main>
+    
+    <footer style="margin-top: 3rem; text-align: center; color: #6c757d;">
+        <p>This digital garden is always growing.</p>
+    </footer>
+</body>
+</html>
