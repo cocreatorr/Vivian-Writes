@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ .Title }} | Vivian Writes</title>
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+    <main>
+        <article class="post">
+            <h1>{{ .Title }}</h1>
+            <div class="post-content">
+                {{ .Content }}
+            </div>
+            
+            <!-- SHARE BUTTONS -->
+            <div class="share-section">
+                <h3>Enjoyed this article? Share it! 🌱</h3>
+                <div class="share-buttons">
+                    <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}" 
+                       class="share-btn twitter" target="_blank" rel="noopener">
+                        🐦 Twitter
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}" 
+                       class="share-btn linkedin" target="_blank" rel="noopener">
+                        💼 LinkedIn
+                    </a>
+                    
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" 
+                       class="share-btn facebook" target="_blank" rel="noopener">
+                        📘 Facebook
+                    </a>
+                    
+                    <button class="share-btn copy" onclick="copyToClipboard('{{ .Permalink }}', this)">
+                        📋 Copy Link
+                    </button>
+                </div>
+                <div class="copy-success">Link copied to clipboard! ✅</div>
+            </div>
+        </article>
+    </main>
+
+    <script>
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text).then(function() {
+            const successMsg = button.parentElement.nextElementSibling;
+            if (successMsg) successMsg.style.display = 'block';
+            
+            const originalText = button.innerHTML;
+            button.innerHTML = '✅ Copied!';
+            button.style.color = '#4a7c59';
+            
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.style.color = '';
+                if (successMsg) successMsg.style.display = 'none';
+            }, 2000);
+        }).catch(function(err) {
+            alert('Could not copy link. Please copy manually.');
+        });
+    }
+    </script>
+</body>
+</html>

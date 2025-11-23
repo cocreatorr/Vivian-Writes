@@ -1,0 +1,49 @@
+/* Share buttons styling */
+.share-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #4a7c59;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #495057;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-decoration: none;
+}
+
+.share-btn.twitter { color: #1da1f2; border-color: #1da1f2; }
+.share-btn.linkedin { color: #0077b5; border-color: #0077b5; }
+.share-btn.facebook { color: #4267B2; border-color: #4267B2; }
+.share-btn.copy { color: #6c757d; border-color: #6c757d; }
+
+/* Success message for copy button */
+.copy-success {
+  display: none;
+  color: #4a7c59;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
