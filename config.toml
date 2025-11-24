@@ -1,4 +1,4 @@
-baseURL = "https://vivianwrites.netlify.app/"
+baseURL = "https://cocreatorr.github.io/Vivian-Writes/"
 languageCode = "en-us"
 title = "Vivian's Digital Garden"
 
@@ -9,15 +9,12 @@ title = "Vivian's Digital Garden"
   category = "categories"
   tag = "tags"
 
-# Build settings
 buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-# Output formats
 [outputs]
   home = ["HTML", "RSS"]
   page = ["HTML"]
 
-# Disable theme since we're using custom layouts
 disableKinds = ["taxonomy", "term"]
