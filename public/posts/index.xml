@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Vivian&#39;s Digital Garden</title>
+    <link>http://localhost:1313/Vivian-Writes/posts/</link>
+    <description>Recent content in Posts on Vivian&#39;s Digital Garden</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Nov 2025 16:40:16 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/Vivian-Writes/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to My Digital Garden 🌱</title>
+      <link>http://localhost:1313/Vivian-Writes/posts/2025-11-23-welcome-to-my-digital-garden-/</link>
+      <pubDate>Sun, 23 Nov 2025 16:40:16 +0000</pubDate>
+      <guid>http://localhost:1313/Vivian-Writes/posts/2025-11-23-welcome-to-my-digital-garden-/</guid>
+      <description>&lt;h1 id=&#34;welcome-to-my-digital-garden-&#34;&gt;Welcome to My Digital Garden 🌱&lt;/h1&gt;&#xA;&lt;p&gt;This marks the beginning of my digital garden—a living, growing collection of thoughts, ideas, and discoveries.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-youll-find-growing-here&#34;&gt;What You&amp;rsquo;ll Find Growing Here&lt;/h2&gt;&#xA;&lt;h3 id=&#34;-food--cooking&#34;&gt;🍽️ Food &amp;amp; Cooking&lt;/h3&gt;&#xA;&lt;p&gt;Recipes that tell stories, culinary experiments, and flavors worth sharing.&lt;/p&gt;&#xA;&lt;h3 id=&#34;-travel--adventures&#34;&gt;✈️ Travel &amp;amp; Adventures&lt;/h3&gt;&#xA;&lt;p&gt;Journeys that become stories, and stories that become connections.&lt;/p&gt;&#xA;&lt;h3 id=&#34;-technology&#34;&gt;💻 Technology&lt;/h3&gt;&#xA;&lt;p&gt;Tools, code, and systems that shape our digital world.&lt;/p&gt;&#xA;&lt;h3 id=&#34;-inspiration&#34;&gt;✨ Inspiration&lt;/h3&gt;&#xA;&lt;p&gt;Beautiful fragments that spark something new.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

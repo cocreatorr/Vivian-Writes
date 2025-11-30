@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Vivian&#39;s Digital Garden</title>
+    <link>http://localhost:1313/Vivian-Writes/categories/</link>
+    <description>Recent content in Categories on Vivian&#39;s Digital Garden</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Nov 2025 16:40:16 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/Vivian-Writes/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digital-Garden</title>
+      <link>http://localhost:1313/Vivian-Writes/categories/digital-garden/</link>
+      <pubDate>Sun, 23 Nov 2025 16:40:16 +0000</pubDate>
+      <guid>http://localhost:1313/Vivian-Writes/categories/digital-garden/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Welcome</title>
+      <link>http://localhost:1313/Vivian-Writes/categories/welcome/</link>
+      <pubDate>Sun, 23 Nov 2025 16:40:16 +0000</pubDate>
+      <guid>http://localhost:1313/Vivian-Writes/categories/welcome/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
