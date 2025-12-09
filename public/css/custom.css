@@ -1,49 +1,205 @@
-/* Share buttons styling */
-.share-section {
-  margin: 3rem 0;
+/* Modern Digital Garden Styling */
+:root {
+  --primary: #4a7c59;
+  --secondary: #8b4513;
+  --accent: #d4a574;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --text: #2d3748;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+  box-shadow: 0 0 50px rgba(0,0,0,0.1);
+}
+
+.site-header {
+  background: linear-gradient(135deg, var(--primary), #3a6147);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.site-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.site-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.site-description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+.main-content {
   padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  border-left: 4px solid #4a7c59;
+  background: white;
+}
+
+/* Post Previews */
+.post-preview {
+  background: var(--light);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--primary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-preview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.post-preview h2 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.post-preview h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-preview h2 a:hover {
+  text-decoration: underline;
+}
+
+.post-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.read-more {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Single Post */
+.post {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--light);
+}
+
+.post-title {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-date {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.post-content h2 {
+  color: var(--primary);
+  margin: 2rem 0 1rem 0;
+}
+
+.post-content h3 {
+  color: var(--secondary);
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+/* Share Buttons */
+.share-section {
+  background: var(--light);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 3rem;
+  text-align: center;
 }
 
 .share-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 1rem;
 }
 
 .share-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: white;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary);
+  color: var(--primary);
   text-decoration: none;
-  color: #495057;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s;
 }
 
 .share-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  text-decoration: none;
+  background: var(--primary);
+  color: white;
 }
 
-.share-btn.twitter { color: #1da1f2; border-color: #1da1f2; }
-.share-btn.linkedin { color: #0077b5; border-color: #0077b5; }
-.share-btn.facebook { color: #4267B2; border-color: #4267B2; }
-.share-btn.copy { color: #6c757d; border-color: #6c757d; }
-
-/* Success message for copy button */
 .copy-success {
   display: none;
-  color: #4a7c59;
-  font-size: 0.9rem;
+  color: var(--primary);
   margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--dark);
+  color: white;
+  margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    margin: 0;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .site-title {
+    font-size: 2rem;
+  }
+  
+  .post-title {
+    font-size: 2rem;
+  }
 }
