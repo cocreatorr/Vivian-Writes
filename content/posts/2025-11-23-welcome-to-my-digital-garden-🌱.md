@@ -5,7 +5,6 @@ categories:
   - digital-garden
   - welcome
 ---
-# Welcome to My Digital Garden 🌱
 
 This marks the beginning of my digital garden—a living, growing collection of thoughts, ideas, and discoveries.
 
