@@ -1,12 +1,5 @@
-# dependencies
 node_modules/
-
-# environment variables
 .env
-
-# build output
-.next/
-dist/
-
-# system files
 .DS_Store
+.next/
+studio/.sanity/
